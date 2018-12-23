@@ -2,14 +2,14 @@
 
 # install python dependencies
 - name: Install neovim python dependencies
-  apt: name={{ item }} state=installed
+  apt: name={{ item }} state=present
   with_items:
     - "{{ python_required_packages }}"
   become: true
 
 # install YCM dependencies
 - name: Install You Complete Me dependencies
-  apt: name={{ item }} state=installed
+  apt: name={{ item }} state=present
   with_items:
     - "{{ ycm_packages }}"
   become: true
