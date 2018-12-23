@@ -2,3 +2,4 @@
 - hosts: localhost
   roles:
     - neovim
+    - oh-my-zsh
