@@ -29,6 +29,7 @@
 - name: Install vim plugins 
   command: nvim "+silent! PlugInstall!" +qall!
 
+# TODO: check if YCM server is up and running before building again
 - name: Build YCM
   command: python3 "{{ user_dir }}/.vim/bundle/YouCompleteMe/install.py"
 
