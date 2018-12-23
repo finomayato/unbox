@@ -31,4 +31,6 @@
 
 - name: Install vim plugins 
   command: nvim "+silent! PlugInstall!" +qall!
-  tags: plugins
+
+- name: Build YCM
+  command: python3 "{{ user_dir }}/.vim/bundle/YouCompleteMe/install.py"
