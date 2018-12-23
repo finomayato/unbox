@@ -31,3 +31,8 @@
 
 - name: Build YCM
   command: python3 "{{ user_dir }}/.vim/bundle/YouCompleteMe/install.py"
+
+- name: Create backups folder
+  file:
+    path: "{{ user_dir }}/.vim/backups"
+    state: directory
