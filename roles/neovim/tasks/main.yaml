@@ -1,0 +1,34 @@
+---
+
+# install python dependencies
+- name: Install neovim python dependencies
+  apt: name={{ item }} state=installed
+  with_items:
+    - "{{ python_required_packages }}"
+  become: true
+
+# install YCM dependencies
+- name: Install You Complete Me dependencies
+  apt: name={{ item }} state=installed
+  with_items:
+    - "{{ ycm_packages }}"
+  become: true
+
+# install neovim
+- name: Install neovim
+  apt: name=neovim state=present
+  become: true
+
+- name: Create nvim directory
+  file:
+    path: "{{ neovim_config_dir }}/bundle"
+    state: directory
+
+- name: Download init.vim
+  get_url:
+      url: "{{ vimrc_raw_gist_url }}"
+      dest: "{{ neovim_config_dir }}/bundle/init.vim"
+
+- name: Install vim plugins 
+  command: nvim "+silent! PlugInstall!" +qall!
+  tags: plugins

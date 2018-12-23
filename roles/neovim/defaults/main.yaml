@@ -1,0 +1,21 @@
+# The base directory relative to which user specific configuration files should be stored
+config_dir: "{{ ansible_env.XDG_CONFIG_HOME | default(default_xdg_config_home) }}"
+
+neovim_config_dir: "{{ config_dir }}/nvim"
+
+vimrc_raw_gist_url: "https://gist.githubusercontent.com/finomayato/fcd8799bbce6b89ff4e65ff552f6a551/raw/ee63d971c286c2e59e58ff7ac5e5bc3e1454d090/.vimrc"
+
+# common required packages for python support
+python_required_packages:
+  - software-properties-common
+  - python-dev
+  - python-pip
+  - python3-dev
+  - python3-pip
+  - python-neovim
+  - python3-neovim
+
+# you complete me 
+ycm_packages:
+  - build-essential
+  - cmake
